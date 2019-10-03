@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     a=os.environ['Authorization']
-    return a
+    return "น.ส.ภาสิณี วงศ์ทำเนียบ ม4/7 เลขที่17"
 
 @app.route("/webhook", methods=['POST'])
 def webhook():
@@ -22,14 +22,14 @@ def callback():
     decoded = json.loads(json_line)
     user = decoded['originalDetectIntentRequest']['payload']['data']['replyToken']
     userText = decoded['queryResult']['intent']['displayName']
-    #sendText(user,userText)
-    if (userText == 'สวัสดี') :
+   if (userText == 'สวัสดี') :
         sendText(user,'ดีจ่ะ')
     elif (userText == 'ไอ้บ้า') :
         sendText(user,'อืม')
     else :
         sendText(user,'อ่า')
     return '',200
+
 
 def sendText(user, text):
   LINE_API = 'https://api.line.me/v2/bot/message/reply'
