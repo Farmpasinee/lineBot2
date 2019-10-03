@@ -22,13 +22,13 @@ def callback():
     decoded = json.loads(json_line)
     user = decoded['originalDetectIntentRequest']['payload']['data']['replyToken']
     userText = decoded['queryResult']['intent']['displayName']
-   if (userText == 'สวัสดี') :
+    if (userText == 'สวัสดี') :
         sendText(user,'ดีจ่ะ')
-   elif (userText == 'ไอ้บ้า') :
+    elif (userText == 'ไอ้บ้า') :
         sendText(user,'อืม')
-   else :
+    else :
         sendText(user,'อ่า')
-   return '',200
+    return '',200
 
 
 def sendText(user, text):
